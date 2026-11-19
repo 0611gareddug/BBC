@@ -1,0 +1,20 @@
+{
+  "name": "blockshow-live",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/obfuscate.mjs",
+    "build:plain": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^5.10.1",
+    "vite": "^8.3.8"
+  },
+  "dependencies": {
+    "galmuri": "^2.40.3",
+    "peerjs": "^1.5.5"
+  }
+}

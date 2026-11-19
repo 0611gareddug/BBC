@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1c2c" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="TV 블록 게임쇼에 출연해 보석을 모으고 탈출하는 픽셀아트 액션 플랫포머. 1인 스토리 15스테이지와 온라인·로컬 대전." />
+  <title>블록쇼 라이브!</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+  <link rel="preload" href="./fonts/Galmuri11.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="./fonts/Galmuri9.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body>
+  <div id="loading">LOADING…</div>
+  <div id="app"><canvas id="game" width="480" height="270"></canvas></div>
+  <div id="touch"></div>
+  <div id="ui"></div>
+  <div id="hudbtns">
+    <button class="btn hide" id="btn-chat" aria-label="채팅">💬</button>
+    <button class="btn hide" id="btn-pause" aria-label="일시정지">⏸</button>
+    <button class="btn hide" id="btn-full" aria-label="전체 화면">⛶</button>
+  </div>
+  <button class="btn" id="skipbtn">건너뛰기 ▶▶</button>
+  <div id="toast"></div>
+  <div id="rotate"><div class="phone"></div><div>휴대폰을 가로로 돌려주세요!</div><div class="small">가로 화면에서 가장 재밌어요</div></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
