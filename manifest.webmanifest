@@ -1,0 +1,10 @@
+{
+  "name": "블록쇼 라이브!",
+  "short_name": "블록쇼",
+  "start_url": "./",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0b0b14",
+  "theme_color": "#1a1c2c",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

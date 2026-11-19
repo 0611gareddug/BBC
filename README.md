@@ -11,30 +11,19 @@ https://0611gareddug.github.io/BBC/
 
 ## 폴더 구조
 ```
-index.html              진입 HTML
+index.html, assets/, fonts/ …   배포용 빌드 결과 (GitHub Pages가 바로 보여주는 파일, 직접 수정 금지)
+web/index.html          원본 HTML
 public/                 글꼴(Galmuri, SIL OFL), 아이콘, PWA 파일
 src/                    원본 소스 (난독화 전, 유지보수용)
-  core/                 상수, 입력, 사운드, 저장, 소스 보호
-  gfx/                  도트 그래픽 생성 (캐릭터·적·타일·배경)
-  game/                 월드, 플레이어, 적·아이템, 보스, 연출(MC·관객), HUD
-  modes/                스토리, 대전(로컬·방장), 온라인 참가자, 컷신
-  net/                  PeerJS P2P 연결
-  ui/                   메뉴 화면, 터치 패드
-  data/                 스테이지 맵, MC 대사, 퀴즈
-scripts/
-  validate-levels.mjs   스테이지 도달 가능성 검사
-  obfuscate.mjs         배포용 난독화
-.github/workflows/deploy.yml  main에 푸시하면 자동 빌드·난독화·배포
+scripts/                레벨 검사 · 난독화 · 배포 파일 복사
 ```
 
 ## 개발
 ```bash
 npm install
 npm run dev        # 개발 서버
-npm run build      # dist/ 생성 + 난독화
-node scripts/validate-levels.mjs
+npm run publish    # 빌드 + 난독화 후 저장소 맨 위로 복사 → 커밋·푸시하면 배포
 ```
 
-## 배포 (처음 한 번)
-저장소 **Settings → Pages → Build and deployment → Source** 를 **GitHub Actions** 로 바꾸면,
-이후 `main` 브랜치에 푸시할 때마다 자동으로 배포됩니다.
+## 배포
+Settings → Pages → Source: **Deploy from a branch**, Branch: **main / (root)**
