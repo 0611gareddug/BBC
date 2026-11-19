@@ -1,9 +1,18 @@
-name: 빌드 확인
+name: 빌드 및 배포
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -17,3 +26,17 @@ jobs:
       - run: npm ci
       - run: node scripts/validate-levels.mjs
       - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  # Pages 설정이 "GitHub Actions"일 때만 배포됨. "브랜치에서 배포"일 때는 실패해도 무시 (저장소 맨 위 파일로 배포됨)
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
